@@ -9,6 +9,10 @@ app.use(cors({
     origin: "*"}));
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
+});
+
 app.post('/translate', async (req, res) => {
     const { text, from, to } = req.body;
 
