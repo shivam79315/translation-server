@@ -14,6 +14,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.21.2",
+    "pm2": "^6.0.5",
     "reverso-api": "^2.22.10"
   }
 }

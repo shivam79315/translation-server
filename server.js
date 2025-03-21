@@ -16,6 +16,7 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
     res.send('Hello, World!');
+    testTranslation();
 });
 
 async function testTranslation() {
@@ -26,8 +27,6 @@ async function testTranslation() {
         console.error("Reverso API Error:", error);
     }
 }
-
-testTranslation();
 
 // app.post('/translate', async (req, res) => {
 //     const { text, from, to } = req.body;
