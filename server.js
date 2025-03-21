@@ -16,7 +16,14 @@ app.use(express.json());
 
 app.get('/', async (req, res) => {
     try {
+        if (!reverso || typeof reverso.getTranslation !== 'function') {
+            console.error("Reverso API is not available or getTranslation method does not exist.");
+            return res.status(500).json({ error: "Reverso API is unavailable" });
+        }
+
+        console.log("Reverso API is available. Calling getTranslation...");
         const result = await reverso.getTranslation("Hello, my name", "english", "hebrew");
+
         res.json({ message: "Hello, World!", translation: result });
     } catch (error) {
         console.error("Reverso API Error:", error);
