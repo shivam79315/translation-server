@@ -9,7 +9,7 @@ app.use(cors({
     origin: "*",
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
-    credentials: true  // Allow cookies/auth headers if needed
+    credentials: true  
 }));
 
 app.use(express.json());
@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
 app.post('/translate', async (req, res) => {
     const { text, from, to } = req.body;
-
+    console.log("Request:", req.body);
     if (!text) {
         return res.status(400).json({ error: "Text is required" });
     }
