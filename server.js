@@ -18,6 +18,17 @@ app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
 
+async function testTranslation() {
+    try {
+        const result = await reverso.getTranslation("Hello, my name", "english", "hebrew");
+        console.log("Translation Result:", result);
+    } catch (error) {
+        console.error("Reverso API Error:", error);
+    }
+}
+
+testTranslation();
+
 app.post('/translate', async (req, res) => {
     const { text, from, to } = req.body;
     console.log("Request:", text);
@@ -40,17 +51,6 @@ app.post('/translate', async (req, res) => {
         res.status(500).json({ error: "Failed to fetch translation." });
     }
 });
-
-async function testTranslation() {
-    try {
-        const result = await reverso.getTranslation("Hello", "english", "hebrew");
-        console.log("Translation Result:", result);
-    } catch (error) {
-        console.error("Reverso API Error:", error);
-    }
-}
-
-testTranslation();
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
