@@ -21,13 +21,13 @@ app.get('/', async (req, res) => {
             return res.status(500).json({ error: "Reverso API is unavailable" });
         }
 
-        // Fetch translation
-        const result = await reverso.getTranslation("Hello", "english", "hebrew");
+        // // Fetch translation
+        // const result = await reverso.getTranslation("Hello", "english", "hebrew");
 
-        console.log("Translation:", result);
+        // console.log("Translation:", result);
 
         // Send response
-        res.json({ message: "Hello, World!", translation: result });
+        res.json({ message: "Hello, World!"});
 
     } catch (error) {
         console.error("Reverso API Error:", error);
