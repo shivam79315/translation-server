@@ -41,5 +41,16 @@ app.post('/translate', async (req, res) => {
     }
 });
 
+async function testTranslation() {
+    try {
+        const result = await reverso.getTranslation("Hello", "en", "fr");
+        console.log("Translation Result:", result);
+    } catch (error) {
+        console.error("Reverso API Error:", error);
+    }
+}
+
+testTranslation();
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
