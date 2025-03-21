@@ -43,7 +43,7 @@ app.post('/translate', async (req, res) => {
 
 async function testTranslation() {
     try {
-        const result = await reverso.getTranslation("Hello", "en", "fr");
+        const result = await reverso.getTranslation("Hello", "english", "hebrew");
         console.log("Translation Result:", result);
     } catch (error) {
         console.error("Reverso API Error:", error);
