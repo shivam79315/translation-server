@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
 app.post('/translate', async (req, res) => {
     const { text, from, to } = req.body;
-    console.log("Request:", req.body);
+    console.log("Request:", text);
     if (!text) {
         return res.status(400).json({ error: "Text is required" });
     }
