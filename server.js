@@ -5,7 +5,8 @@ import Reverso from 'reverso-api';
 const app = express();
 const reverso = new Reverso();
 
-app.use(cors());
+app.use(cors({
+    origin: "*"}));
 app.use(express.json());
 
 app.post('/translate', async (req, res) => {
@@ -33,4 +34,3 @@ app.post('/translate', async (req, res) => {
 
 const PORT = 8912;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
-
