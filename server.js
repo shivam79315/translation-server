@@ -24,7 +24,7 @@ app.get('/', async (req, res) => {
         const result = await reverso.getTranslation("Hello, my name", "english", "hebrew");
         console.log("Translation:", result);
 
-        res.json({ message: "Hello, World!", translation: result });
+        res.send(`Hello, World! Translation: ${result}`);
     } catch (error) {
         console.error("Reverso API Error:", error);
         res.status(500).json({ error: "Failed to fetch translation" });
