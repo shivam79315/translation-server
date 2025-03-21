@@ -22,7 +22,7 @@ app.get('/', async (req, res) => {
         }
 
         // Fetch translation
-        const result = await reverso.getTranslation("Hello", "eng", "heb");
+        const result = await reverso.getTranslation("Hello");
 
         console.log("Translation:", result);
 
