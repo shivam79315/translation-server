@@ -6,7 +6,12 @@ const app = express();
 const reverso = new Reverso();
 
 app.use(cors({
-    origin: "*"}));
+    origin: "*",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+    credentials: true  // Allow cookies/auth headers if needed
+}));
+
 app.use(express.json());
 
 app.get('/', (req, res) => {
