@@ -22,7 +22,7 @@ app.get('/', async (req, res) => {
         }
 
         console.log("Reverso API is available. Calling getTranslation...");
-        const result = await reverso.getTranslation("Hello, my name", "en", "he")
+        const result = await reverso.getTranslation("Hello, my name", "english", "hebrew")
         .then(result => console.log("Translation:", result))
         .catch(error => console.error("Reverso API Error:", error));    
 
