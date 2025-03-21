@@ -44,8 +44,8 @@ app.post('/translate', async (req, res) => {
         const result = await reverso.getTranslation(text, from, to);
         
         if (result) {
-            // res.json({ translation: result });
             console.log("Translation:", result);
+            res.json({ translation: "translated" });
         } else {
             res.status(500).json({ error: "No translation available." });
         }
