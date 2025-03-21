@@ -20,33 +20,18 @@ app.get('/', (req, res) => {
 
 app.post('/translate', async (req, res) => {
     const { text, from, to } = req.body;
-
     console.log("Request:", text);
-
     if (!text) {
         return res.status(400).json({ error: "Text is required" });
     }
 
     try {
-        const response = await fetch("https://api.reverso.net/translate/v1/translation", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                input: text,
-                from: from,
-                to: to,
-                format: "text"
-            }),
-        });
-
-        const result = await response.json();
-
+        const result = await reverso.getTranslation(text, from, to);
         console.log("API Response:", result);
-
-        if (result.translation) {
-            res.json({ translation: result.translation });
+        // Ensure translation exists and is an array
+        if (result) {
+            res.json({ translation: result });
+            console.log("Translation:", result);
         } else {
             res.status(500).json({ error: "No translation available." });
         }
