@@ -26,7 +26,7 @@ app.post('/translate', async (req, res) => {
     }
 
     try {
-        const result = await reverso.getTranslation(text, 'english', 'hebrew');
+        const result = await reverso.getTranslation(text, from, to);
         console.log("API Response:", result);
         // Ensure translation exists and is an array
         if (result) {
