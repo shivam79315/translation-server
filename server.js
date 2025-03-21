@@ -21,7 +21,7 @@ app.get('/', async (req, res) => {
             return res.status(500).json({ error: "Reverso API is unavailable" });
         }
 
-        const result = await reverso.getTranslation("Hello, my name", "english", "hebrew");
+        const result = await reverso.getTranslation("Hello", "english", "hebrew");
         console.log("Translation:", result);
 
         res.send(`Hello, World! Translation: ${result}`);
