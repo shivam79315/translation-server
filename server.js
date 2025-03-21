@@ -18,6 +18,8 @@ app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
 
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 app.post('/translate', async (req, res) => {
     const { text, from, to } = req.body;
     console.log("Request:", text);
